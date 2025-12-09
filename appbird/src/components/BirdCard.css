@@ -1,0 +1,244 @@
+.bird-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  min-height: 100px;
+  margin-bottom: 16px;
+}
+
+.bird-card:hover {
+  background: #f9f9f9;
+}
+
+.bird-image-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 12px;
+}
+
+.bird-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-play-right {
+  width: 60px;
+  min-width: 60px;
+  height: 100%;
+  background: #19A7CE;
+  color: white;
+  border: none;
+  border-radius: 12px 0 12px 0;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: auto;
+  position: relative;
+}
+
+.btn-play-right:hover {
+  background: #1589b3;
+}
+
+.btn-play-right.playing {
+  background: #dc3545;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 2px 16px rgba(220, 53, 69, 0.5);
+  }
+}
+
+.bird-info {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.bird-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bird-scientific {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+
+.bird-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.bird-detail-item {
+  display: flex;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #888;
+  min-width: 80px;
+}
+
+.detail-value {
+  color: #333;
+  flex: 1;
+}
+
+.recordists-section {
+  align-items: flex-start;
+}
+
+.recordists-container {
+  flex: 1;
+}
+
+.recordists-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.recordist-tag {
+  font-size: 11px;
+  background: #f0f0f0;
+  color: #555;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.recordist-more {
+  font-size: 11px;
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.recordist-more:hover {
+  background: #5568d3;
+}
+
+.bird-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.locations-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.locations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.location-tag {
+  font-size: 11px;
+  background: #e8f4f8;
+  color: #19A7CE;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.location-more {
+  font-size: 11px;
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.location-more:hover {
+  background: #5568d3;
+}
+
+@media (max-width: 480px) {
+  .bird-image-container {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    padding: 8px;
+  }
+
+  .btn-play-right {
+    width: 50px;
+    min-width: 50px;
+    font-size: 20px;
+  }
+
+  .bird-title {
+    font-size: 14px;
+  }
+
+  .bird-scientific {
+    font-size: 12px;
+  }
+
+  .detail-label {
+    font-size: 11px;
+    min-width: 70px;
+  }
+
+  .detail-value {
+    font-size: 11px;
+  }
+}
