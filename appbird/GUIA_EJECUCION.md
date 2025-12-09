@@ -1,205 +1,50 @@
-# 📋 Guía de Ejecución - Aplicación Aves de Guatemala
-
-## 1️⃣ CONFIGURAR API KEY
-
-### Opción A: Variable de Entorno (Recomendado)
-
-```powershell
-# Abre PowerShell en Windows y ejecuta:
-$env:VITE_XENO_CANTO_API_KEY = "tu-api-key-aqui"
-
-# Ejemplo con API key real:
-$env:VITE_XENO_CANTO_API_KEY = "abc123xyz456"
-```
-
-### Opción B: Archivo `.env.local`
-
-1. En la carpeta `appbird/`, crea un archivo llamado `.env.local`
-2. Agrega esta línea:
-```
-VITE_XENO_CANTO_API_KEY=tu-api-key-aqui
-```
-
-3. Guarda el archivo
-
-### Opción C: Editar `src/config/api.js` (Solo desarrollo)
-
-```javascript
-// En src/config/api.js, línea ~12:
-apiKey: 'tu-api-key-aqui',  // Reemplaza 'tu-api-key-aqui' con tu clave real
-```
-
----
-
-## 2️⃣ INSTALAR DEPENDENCIAS
-
-```powershell
-# Abre PowerShell en la carpeta del proyecto
-cd c:\Users\EdwardDev\Desktop\Edward-24000190-Semana5-IDAM\appbird
-
-# Instala las dependencias
-npm install
-
-# Espera a que termine (toma 1-3 minutos la primera vez)
-```
-
----
-
-## 3️⃣ EJECUTAR EN MODO DESARROLLO
-
-```powershell
-# En la carpeta appbird, ejecuta:
-npm run dev
-
-# Verás algo como:
-#   ➜  Local:   http://localhost:5173/
-#   ➜  press h + enter to show help
-```
-
-**Abre en tu navegador:** `http://localhost:5173/`
-
----
-
-## 4️⃣ COMPILAR PARA PRODUCCIÓN
-
-```powershell
-# En la carpeta appbird, ejecuta:
-npm run build
-
-# Se generará una carpeta 'dist/' con los archivos optimizados
-```
-
----
-
-## 5️⃣ PREVISUALIZAR BUILD DE PRODUCCIÓN
-
-```powershell
-# Después de ejecutar: npm run build
-
-# Ejecuta:
-npm run preview
-
-# Abre en navegador: http://localhost:4173/
-```
-
----
-
-## 🔍 OBTENER TU API KEY DE XENO-CANTO
-
-1. Ve a: https://xeno-canto.org/register
-2. Crea una cuenta con tu email
-3. Verifica tu email (revisa spam si no llega)
-4. Inicia sesión en: https://xeno-canto.org/account
-5. En la sección "API key" encontrarás tu clave personal
-6. Cópiala completamente (sin espacios)
-
----
-
-## ✅ VERIFICAR QUE FUNCIONA
-
-1. Ejecuta: `npm run dev`
-2. Abre: `http://localhost:5173/`
-3. Deberías ver:
-   - ✅ Pantalla de inicio con nombre "Edward Ronaldo Hernández Gómez" y carnet "24000190"
-   - ✅ Botón "Cargar" funcional
-   - ✅ Al hacer clic, va a listado de aves
-   - ✅ Se cargan **359 especies de aves de Guatemala**
-   - ✅ Cada ave tiene foto, sonido reproducible, ubicaciones expandibles
-
----
-
-## ❌ SOLUCIONAR ERRORES
-
-### Error: "API key no configurada"
-- Verifica haber configurado la API key en uno de los 3 métodos
-- Cierra y abre PowerShell de nuevo
-- Reinicia el servidor: `npm run dev`
-
-### Error: "Puerto 5173 en uso"
-- Vite usará automáticamente el siguiente puerto: 5174, 5175, etc.
-- Busca la URL en la consola
-
-### Error: "npm no es reconocido"
-- Reinstala Node.js desde: https://nodejs.org/
-- Cierra y abre PowerShell nuevamente
-
-### Las aves no cargan
-- Verifica conexión a internet
-- Abre la consola del navegador: F12
-- Revisa si hay errores en la pestaña "Console"
-- Prueba tu API key en: https://xeno-canto.org/api/3/recordings?key=TU-KEY&query=cnt:guatemala&per_page=1
-
----
-
-## 📱 PROBAR EN MÓVIL
-
-### Desde PC a Teléfono (misma red WiFi)
-
-```powershell
-# Ejecuta con --host:
-npm run dev -- --host
-
-# Verás algo como:
-#   ➜  Local:   http://localhost:5173/
-#   ➜  Network: http://192.168.X.X:5173/
-
-# Copia la URL de "Network" (la que empieza con 192.168)
-# Abrela en el navegador de tu teléfono
-```
-
----
-
-## 🛑 DETENER LA APLICACIÓN
-
-```powershell
-# En PowerShell, presiona:
-Ctrl + C
-
-# Confirma: Y
-```
-
----
-
-## 📝 RESUMEN RÁPIDO
-
-```powershell
-# 1. Configurar API key (una sola vez)
-$env:VITE_XENO_CANTO_API_KEY = "tu-clave-aqui"
-
-# 2. Instalar dependencias (primera vez)
-npm install
-
-# 3. Ejecutar
-npm run dev
-
-# 4. Abre navegador
-# http://localhost:5173/
-
-# 5. ¡Listo! Ya ves las 359 aves de Guatemala
-```
-
----
-
-## ✨ CARACTERÍSTICAS QUE DEBERÍAS VER
-
-✅ **Landing:** Nombre y carnet fijo (no editable)  
-✅ **Aves:** 359 especies únicas de Guatemala  
-✅ **Fotos:** Imágenes reales del iNaturalist  
-✅ **Audio:** Botón play redondeado para reproducir sonidos  
-✅ **Información:** Familia, nombre científico, ubicaciones, descubridores  
-✅ **Expandibles:** Ubicaciones y descubridores se expanden al hacer clic  
-✅ **Responsivo:** Se adapta a móvil y escritorio  
-✅ **Único audio:** Solo uno se reproduce a la vez  
-
----
-
-## 🎯 ¿NECESITAS AYUDA?
-
-Si algo no funciona:
-1. Verifica la consola del navegador (F12)
-2. Cierra PowerShell y Node
-3. Limpia caché: `npm cache clean --force`
-4. Reinstala: `npm install`
-5. Vuelve a ejecutar: `npm run dev`
-
-**¡Éxito! 🚀**
+Guía de Ejecución Técnica: Aplicación Aves de Guatemala
+1.	Configuración de la Clave API (API Key)
+Para el correcto funcionamiento de la aplicación, es necesario configurar la credencial de acceso a Xeno-Canto. Seleccione uno de los siguientes métodos.
+1.1.	Opción B: Archivo de configuración local: Este método es persistente y seguro para el entorno de desarrollo.
+•	En la carpeta raíz del proyecto (appbird/), cree un archivo llamado .env.local.
+•	Agregue la siguiente línea dentro del archivo y guarde los cambios:
+VITE_XENO_CANTO_API_KEY=api-key.generada-xeno
+2.	Instalación de Dependencias:
+•	Antes de ejecutar el sistema, es necesario descargar las librerías requeridas.
+•	Abra PowerShell y navegue a la carpeta del proyecto:
+•	Ejecute el comando de instalación:
+•	PowerShell
+•	npm install
+Este proceso puede tardar entre 1 y 3 minutos.
+3.	Ejecución en Entorno de Desarrollo:
+•	Para iniciar la aplicación en modo local:
+•	PowerShell
+•	npm run dev
+•	El sistema indicará que el servidor está activo, generalmente en la dirección http://localhost:5173/. Ingrese dicha dirección en su navegador web.
+4.	Compilación para Producción: Para generar una versión optimizada de la aplicación lista para su despliegue:
+
+•	PowerShell
+•	npm run build
+•	Este comando generará una carpeta denominada dist/ que contiene los archivos estáticos optimizados. Para previsualizar esta versión, utilice el comando:
+•	PowerShell
+•	npm run preview
+5.	Obtención de Credenciales (Xeno-Canto): Si no cuenta con una clave API, siga estos pasos:
+•	Regístrese en el portal oficial: https://xeno-canto.org/register.
+•	Verifique su cuenta a través del correo electrónico.
+•	Acceda a su perfil en la sección "API key" para obtener la cadena alfanumérica necesaria.
+6.	Verificación del Sistema: Una vez iniciada la aplicación, se deben validar los siguientes elementos funcionales:
+•	Interfaz de Inicio: Visualización del nombre "Edward Ronaldo Hernández Gómez" y carnet "24000190".
+•	Carga de Datos: Funcionalidad del botón "Cargar" que debe desplegar el listado de especies.
+•	Integridad de Datos: Visualización de 359 especies de aves de Guatemala.
+•	Multimedia: Correcta carga de fotografías (iNaturalist) y reproducción de audio.
+•	Interactividad: Despliegue de información adicional (ubicaciones y descubridores) al interactuar con los elementos.
+7.	Solución de Problemas Comunes
+7.1.	Error: API key no configurada: Si la aplicación no carga datos, verifique que la variable de entorno se haya configurado correctamente según la Sección 1. Se recomienda reiniciar la terminal y el servidor de desarrollo.
+7.2.	Error: Puerto en uso: Si el puerto 5173 está ocupado, Vite asignará automáticamente el siguiente puerto disponible (ej. 5174). Verifique la URL mostrada en la consola.
+7.3.	Problemas de visualización de datos: Si las aves no se visualizan:
+•	Verifique su conexión a internet.
+•	Inspeccione la consola del navegador (F12) en busca de errores.
+•	Valide su API Key realizando una petición directa en el navegador: https://xeno-canto.org/api/3/recordings?key=SU-CLAVE&query=cnt:guatemala
+
+8.	Pruebas en Dispositivos Móviles: Para acceder a la aplicación desde un dispositivo móvil conectado a la misma red Wi-Fi:
+•	Ejecute el servidor con el parámetro de host:
+•	PowerShell
+•	npm run dev -- --host
+•	Identifique la dirección IP de red mostrada en la consola (ej. http://192.168.x.x:5173/).
+•	Ingrese dicha dirección en el navegador del dispositivo móvil.
